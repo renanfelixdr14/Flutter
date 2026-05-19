@@ -1,0 +1,81 @@
+Tela2
+import 'package:flutter/material.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Tela 2'),
+      ),
+      body: Column(
+        children: [
+          Container(
+            height: 40,
+            width: 350,
+            color: Colors.amber,
+            margin: EdgeInsets.symmetric(vertical: 5),
+            child: Center(
+              child: Text('Batata'),
+            ),
+          ),
+          Row(
+            children: List.generate(3, (_) =>
+              Container(
+                height: 110,
+                width: 110,
+                color: Colors.deepPurple,
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: Center(
+                  child: Text('Batata'),
+                ),
+              )
+            ),
+          ),
+          Container(
+            height: 40,
+            width: 350,
+            margin: EdgeInsets.symmetric(vertical: 5),
+            color: Colors.amber,
+            child: Center(
+              child: Text('Batata'),
+            ),
+          ),
+          Expanded(
+            child: GridView.builder(
+            itemCount: 4, 
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 30,
+                            mainAxisSpacing: 30,),
+             itemBuilder: (context, batata) {
+              return Container(
+                height: 110,
+                width: 110,
+                color: Colors.deepPurple,
+                child: Center(
+                  child: Text('Bataa'),
+                ),
+              );
+             })
+          ),
+          Container(
+            height: 40,
+            width: 350,
+            color: Colors.amber,
+            child: Center(
+              child: Text('Batata'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
