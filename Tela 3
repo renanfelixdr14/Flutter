@@ -1,0 +1,116 @@
+Tela3
+import 'package:flutter/material.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Tela 3'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              alignment: Alignment.center,
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  height: 160,
+                  width: double.infinity,
+                  color: Colors.deepPurpleAccent, // Cor do Banner
+                ),
+                Positioned(
+                  top: 90, 
+                  child: CircleAvatar(
+                    radius: 70,
+                    backgroundColor: Colors.white,
+                    child: CircleAvatar(
+                      radius: 65,
+                      backgroundColor: Colors.deepPurple.withOpacity(0.3), // Foto
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 90), 
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 45),
+              child: Column(
+                children: [
+                  Container(
+                    height: 25,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Container(
+                    height: 25,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 40),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: List.generate(3, (index) => Container(
+                  height: 90,
+                  width: 90,
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple.withOpacity(0.4),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                )),
+              ),
+            ),
+
+            const SizedBox(height: 40),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  Container(
+                    height: 50,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  Container(
+                    height: 70,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 40),
+          ],
+        ),
+      ),
+    );
+  }
+}
