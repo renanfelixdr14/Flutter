@@ -1,0 +1,146 @@
+Tela1
+import 'package:flutter/material.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              onPressed: () {
+                Scaffold.of(context).openEndDrawer();
+              },
+              icon: Icon(Icons.settings),
+            ),
+          ),
+        ],
+        title: Text("Estrutura do scaffold"),
+        backgroundColor: Colors.deepPurple,
+      ),
+      body: Column(
+        children: [
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: List.generate(
+                8,
+                (_) => Container(
+                  width: 64,
+                  height: 90,
+                  margin: EdgeInsets.symmetric(horizontal: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.purple.shade100,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: List.generate(
+                  10,
+                  (_) => Container(
+                    width: double.infinity,
+                    height: 120,
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.purple.shade100,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: Row(
+          children: [
+            Column(
+              children: List.generate(
+                8,
+                (_) => Container(
+                  width: 64,
+                  height: 90,
+                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.purple.shade100,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),   
+            ),
+            Column(
+              children: List.generate(
+                8,
+                (_) => Container(
+                  width: 200,
+                  height: 47,
+                  margin: EdgeInsets.symmetric(vertical: 29.5),
+                  decoration: BoxDecoration(
+                    color: Colors.purple.shade100,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),   
+            ),
+          ],
+        ),
+        ),
+      endDrawer: Drawer(
+        child: Row(
+          children: [
+            Column(
+              children: List.generate(
+                8,
+                (_) => Container(
+                  width: 64,
+                  height: 90,
+                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.purple.shade100,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),   
+            ),
+            Column(
+              children: List.generate(
+                8,
+                (_) => Container(
+                  width: 200,
+                  height: 47,
+                  margin: EdgeInsets.symmetric(vertical: 29.5),
+                  decoration: BoxDecoration(
+                    color: Colors.purple.shade100,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),   
+            ),
+          ],
+        ),
+        ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.person_2), label: 'Perfil'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Configurações'),
+        ],
+      ),
+    );
+  }
+}
